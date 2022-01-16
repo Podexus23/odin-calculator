@@ -22,26 +22,53 @@ console.log(operate(add, 2, 4))
 
 //work with screen
 const screen = document.querySelector('.screen');
-const numbers = document.querySelectorAll('.buttons-numbers .button')
+const screenOperand = screen.querySelector('.screen-operand');
+const numButtons = document.querySelectorAll('.buttons-numbers .button');
+const optionButtons = document.querySelectorAll('.buttons-screen .button');
+const operationsButtons = document.querySelectorAll('.buttons-operations .button');
 
-let operand = 0;
+let firstNumber = 0;
+let secondNumber;
+let operation;
 
 function operandOnScreen(number) {
-  if (operand == 0) {
-    operand = number;
+  if (firstNumber == 0) {
+    firstNumber = number;
   } else {
-    operand = `${operand}${number}`
+    firstNumber = `${firstNumber}${number}`
   }
-  let screenOperand = screen.querySelector('.screen-operand');
-  screenOperand.textContent = operand;
+  screenOperand.textContent = firstNumber;
 }
 
-numbers.forEach((num => num.addEventListener('click', (e) => {
+numButtons.forEach((num => num.addEventListener('click', (e) => {
   //turning off unused buttons in number category
   if (!isNaN(parseInt(e.target.textContent))) {
-    console.log(e.target.textContent);
     operandOnScreen(e.target.textContent)
   } else {
     return
   }
 })))
+//only clean first number
+function cleanScreen() {
+  screenOperand.textContent = 0;
+  firstNumber = 0;
+}
+
+function backspaceNumber() {
+  firstNumber = firstNumber.slice(0, -1);
+  if (firstNumber.length < 1 || firstNumber == 0) {
+    firstNumber = '0';
+  }
+  screenOperand.textContent = firstNumber;
+}
+
+optionButtons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    if (e.target.textContent.toLowerCase() == 'clear') {
+      cleanScreen()
+    }
+    if (e.target.textContent.toLowerCase() == 'back') {
+      backspaceNumber()
+    }
+  })
+})
