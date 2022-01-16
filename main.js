@@ -11,11 +11,14 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-  return (a / b).toFixed(3)
+  return a / b
 }
 
 function operate(operator, a, b) {
-  return operator(a, b)
+  let result = operator(a, b);
+  if (String(result).includes('.')) {
+    return parseFloat(result.toFixed(3))
+  } else return result
 }
 
 //work with screen
@@ -42,6 +45,9 @@ numButtons.forEach((num => num.addEventListener('click', (e) => {
   //turning off unused buttons in number category
   if (!isNaN(parseInt(e.target.textContent))) {
     operandOnScreen(e.target.textContent)
+  }
+  if (e.target.textContent == '.') {
+    operandOnScreen(screenOperand.textContent.includes('.') ? '' : '.')
   } else {
     return
   }
