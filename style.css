@@ -55,6 +55,18 @@ body {
   width: -webkit-fill-available;
   font-size: 1.4rem;
   text-transform: uppercase;
+  opacity: 1;
+  transition: all 0.2s;
+  box-shadow: 2px 3px 2px 0px #ffa906;
+  user-select: none;
+}
+
+.button:hover {
+  box-shadow: 2px 3px 2px 0px #f8ecd4;
+}
+
+.button:active {
+  box-shadow: 2px 3px 2px 0px #413d36;
 }
 
 .buttons {
