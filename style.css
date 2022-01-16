@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.calculator {
+  background-color: #231E1E;
+  max-width: 400px;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  flex: 1;
+
+}
+
+.screen {
+  background: #fff;
+  width: 100%;
+  padding: 5px;
+  text-align: end;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.screen-operand {
+  font-size: 1.5rem;
+}
+
+.screen-operation {
+  display: inline-block;
+  margin-left: 0.2rem;
+}
+
+.button {
+  max-width: 85px;
+  height: 54px;
+  background: #f2d76c;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.buttons-screen {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons-screen .button {
+  background-color: #e83939;
+}
+
+.buttons-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.buttons-numbers {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  max-width: 75%;
+  flex-wrap: wrap;
+}
+
+.buttons-operations {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.buttons-operations .button {
+  background-color: rgb(127, 255, 159);
+}
